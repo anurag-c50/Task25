@@ -1,0 +1,18 @@
+body{
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  height: 73vh;
+  width: 45vw;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

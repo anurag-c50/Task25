@@ -1,32 +1,35 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react'
 import './App.css'
 import Firstlevel from './Firstlevel'
-import Secondlevel from './Secondlevel'
+import Button from './Button'
 import NoteContext from './contextApi/note/NoteContext'
+
 export default function App() {
-  const {count,setCount}=useContext(NoteContext)
-  const LargeCalculation=()=>{
-    const sum=()=>{
-    let i;
-    for(i=0;i<1000000000;i++){
-      i=i+1;
-    }
-    return i
+  const [count,setCount]=useState(0)
+
+  const mybiodata=useMemo(()=>{
+  return{
+    name:"Anurag",
+    rollno:17
   }
-  const total=useCallback(()=>
-    sum()
-  ,[]) 
-  return <p>{total}</p>
-  }
+  },[])
+  const increment=useCallback(()=>{
+    console.log("increment button")
+    setCount(count+1)
+  },[])
+  const decrement=useCallback(()=>{
+    console.log("decrement button")
+    setCount(count-1)
+  },[])
   return (
     <>
         <div className='container'>
-        <LargeCalculation/>
+        <Firstlevel StudentInfo={mybiodata}/>
         <button onClick={()=>setCount(count+1)}>increment++</button>
         <p>{count}</p>
+        <Button onclick={increment} name={"Increment"}></Button>
+        <Button onclick={decrement} name={"Decrement"}></Button>
         </div>
-        <Firstlevel></Firstlevel>
-        <Secondlevel></Secondlevel>
     </>
   )
 }

@@ -3,10 +3,9 @@ import NoteContext from "./NoteContext";
 
 
 const NoteState = ({children}) => {
-  const [count,setCount]=useState(0)
 
     return (
-    <NoteContext.Provider value={{count,setCount}}>
+    <NoteContext.Provider value={{}}>
             {children}
         </NoteContext.Provider>
     );
